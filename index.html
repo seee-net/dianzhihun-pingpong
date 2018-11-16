@@ -151,26 +151,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             报名信息填写
                         </h4>
                     </div>
-                    <div class="modal-body">
-                        <form>
-                            <input name="userclass" type="text" value="Class" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Class';}"
-                                required=""><br>
-                            <P class="ex">班级格式以1x0x的方式填写，中英班气卓班在班号前加中英/气卓 </P><br>
-                            <input name="username" type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}"
-                                required=""><br><br>
-                            <input name="usersex" type="text" value="Sex" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Sex';}"
-                                required=""> <br><br>
-                            <input name="userphone" type="text" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}"
-                                required=""> <br><br>
-                            <input name="userqq" type="text" value="QQ" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'QQ';}"
-                                required=""> <br><br>
-                        </form>
-                    </div>
-                    <div class="modal-footer" type="button" class="btn btn-default">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <form action="apply.php" method="post">
+                        <div class="modal-body">
+                                <input name="userclass" type="text" value="Class" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Class';}"
+                                    required=""><br>
+                                <P class="ex">班级格式以1x0x的方式填写，中英班气卓班在班号前加中英/气卓 </P><br>
+                                <input name="username" type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}"
+                                    required=""><br><br>
+                                <input name="usersex" type="text" value="Sex" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Sex';}"
+                                    required=""> <br><br>
+                                <input name="userphone" type="text" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}"
+                                    required=""> <br><br>
+                                <input name="userqq" type="text" value="QQ" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'QQ';}"
+                                    required=""> <br><br>
+                        </div>
+                        <div class="modal-footer" type="button" class="btn btn-default">
                             <input type="submit" value="Submit">
-                        </button>
-                    </div>
+                        </div>
+                    </form>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal -->
         </div>
