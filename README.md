@@ -16,13 +16,15 @@
     │   ├── 2.png
     │   ├── 3.png
     │   └── 4.gif
+    ├── js/
+    │   └── main.js
     ├── apply.php
     ├── index.html
     ├── LICENSE
     ├── README.md
     └── userData.sql
 
-其中apply.php为后台处理程序。userData.sql记录了所需数据库的必要表结构，请务必先行导入该sql文件再进行测试。
+其中apply.php为后台处理程序，main.js为前台表单验证（应该放到后台）。userData.sql记录了所需数据库的必要表结构，请务必先行导入该sql文件再进行测试。
 
 ## 说明
 
