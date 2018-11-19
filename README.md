@@ -8,9 +8,7 @@
     /
     ├── css/
     │   ├── bootstrap.css
-    │   ├── chocolat.css
-    │   ├── style.css
-    │   └── flexslider.css
+    │   └── style.css
     ├── img/
     │   ├── 1.png
     │   ├── 2.png
