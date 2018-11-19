@@ -1,12 +1,13 @@
 /* 表单验证 */
 
 function Check() {
-    this.isName = function (str) {
-        return str.search(/^[\u0391-\uFFE5\w]+$/) != -1
-    }
-    
     this.isClass = function (str) {
         var reg = /^(中英|气卓)?[1-2][0-9][0-1][0-9]$/
+        return reg.test(str)
+    }
+
+    this.isSex = function (str) {
+        var reg = /^(male|famale)$/
         return reg.test(str)
     }
 
@@ -16,27 +17,59 @@ function Check() {
     }
 
     this.isQQ = function (str) {
-        var reg = /^[1-9][0-9]{4,9}$/gim
+        var reg = /^[1-9][0-9]{4,9}$/
         return reg.test(str)
     }
 }
 
-const check = new Check()
+window.onload = function () {
+    const check = new Check()
 
-/* 测试
-console.log(check.isClass("电气1703"))
-console.log(check.isClass("中英1711"))
-console.log(check.isClass("气卓1701"))
+    const submit = document.getElementById("submit-form")
+    const right = document.getElementById("right")
 
-console.log(check.isName("中英"))
-console.log(check.isName("中英的"))
-console.log(check.isName("在开始的"))
+    // 自动轮播
+    setInterval(function() {right.click()}, 5000)
 
-console.log(check.isPhone("15271859601"))
-console.log(check.isPhone("152718596201"))
-console.log(check.isPhone("1527185301"))
+    submit.onclick = function () {
+        const form = document.getElementById("form")
 
-console.log(check.isQQ("1127373762"))
-console.log(check.isQQ("11273762"))
-console.log(check.isQQ("11273737062"))
-*/
+        const classIn = document.getElementById("class-form").value
+        const nameIn = document.getElementById("name-form").value
+        const sexIn = document.getElementById("sex-form").value
+        const phoneIn = document.getElementById("phone-form").value
+        const qqIn = document.getElementById("qq-form").value
+
+        const alertBox = document.getElementById("alertBox")
+        const content = document.getElementById("content")
+
+        function success(str) {
+            alertBox.classList.remove("alert-warning")
+            alertBox.classList.add("alert-success")
+            alertBox.hidden = false
+            content.innerHTML = str
+        }
+
+        function warning(str) {
+            alertBox.classList.remove("alert-success")
+            alertBox.classList.add("alert-warning")
+            alertBox.hidden = false
+            content.innerHTML = str
+        }
+
+        if (!check.isClass(classIn)) {
+            warning("班级格式错误！示例：1801、中英1801、气卓1801")
+        } else if (nameIn === "") {
+            warning("姓名不能为空！")
+        } else if (!check.isSex(sexIn)) {
+            warning("性别格式错误！")
+        } else if (!check.isPhone(phoneIn)) {
+            warning("手机号格式错误！")
+        } else if (!check.isQQ(qqIn)) {
+            warning("QQ号格式错误！")
+        } else {
+            success("报名成功！")
+            form.submit()
+        }
+    }
+}
